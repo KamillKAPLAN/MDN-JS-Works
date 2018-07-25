@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+  .msgBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    height: 600px;
+    background: #eee;
+  }
+  .msgBox p {
+    line-height: 1.5;
+    padding: 10px 20px;
+    color: #333;
+  }
+  .msgBox button {
+    background: none;
+    border: none;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    font-size: 1.1rem;
+    color: #aaa;
+  }
+  .msgBoxa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 242px;
+    border-radius: 10px;
+    background-color: #eee;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1));
+  }
+  .msgBoxa p {
+    line-height: 1.5;
+    padding: 10px 20px;
+    color: #333;
+    padding-left: 82px;
+    background-position: 25px center;
+    background-repeat: no-repeat;
+  }
+  .msgBoxa button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.1rem;
+    color: #aaa;
+  }
+  input {
+    font-size: 2em;
+    margin: 10px 1px 0;
+  }
+  #foo {
+    border: solid blue 2px;
+  }
+</style>
+  </head>
+  <body>
+    <button type="button" name="button">CLİCK</button> <br> <br>
+
+    <button type="button" name="button" id="dsp">Display message box</button> <br> <br>
+
+    <button type="button" name="button" id="dsp2">Display2 message box</button> <br> <br>
+
+    <input class="numberInput" type="text">
+    <p></p>
+
+    <button type="button" name="button" id="chnc">Change color</button> <br> <br> <hr>
+
+    <form name="myForm">
+        <p>Enter numbers only: <input type="text" name="myInput" onkeypress="return numbersOnly(this, event);" onpaste="return false;" /></p>
+    </form>  <hr>
+
+    <button type="button" name="button" id="msnBtn">Mouse Over and Out</button> <br> <br> <hr>
+
+    <script src="../../scripts/JS_2/js2_3-4-5.js"></script>
+  </body>
+</html>
