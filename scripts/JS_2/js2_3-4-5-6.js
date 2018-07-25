@@ -147,7 +147,7 @@ input.onchange = function() {
   if(isNaN(num)) {
     para.textContent = 'Bir sayı girmelisin!';
   }else {
-    para.textContent = num + ' nin karasi ' + squared(num) + '. ' + num + ' nin küpü ' + cubed(num) + '. ' + num + ' nin faktoriyeli ' + factorial(num) + '.';
+    para.textContent = num + ' nin karesi ' + squared(num) + '. ' + num + ' nin küpü ' + cubed(num) + '. ' + num + ' nin faktoriyeli ' + factorial(num) + '.';
   }
 }
 
@@ -181,35 +181,44 @@ msnBtn.onmouseout = function() {
 }
 
                     // ----- 4.ÖRNEK -----
+var bton = document.querySelector('#chncBtn');
 
+function bgChange(e) {
+  var rndCol2 = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+  e.target.style.backgroundColor = rndCol2;
+  console.log(e);
+}
+bton.addEventListener('click',bgChange);
 
                     // ----- 5.ÖRNEK -----
+for (var i = 1; i <= 16; i++) {
+  var myDiv = document.createElement('div');
+  myDiv.setAttribute('class','dv');
+  document.body.appendChild(myDiv);
+}
 
+function bgChangee() {
+  var rndColl = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+    return rndColl;
+}
+
+var divs = document.querySelectorAll('div');
+for(var i = 0; i < divs.length; i++) {
+  divs[i].onclick = function(e) {
+  e.target.style.backgroundColor = bgChangee();
+  }
+}
 
                     // ----- 6.ÖRNEK -----
+var form = document.querySelector('#frma');
+var fname = document.getElementById('fname');
+var lname = document.getElementById('lname');
+var submit = document.getElementById('submit');
+var para2 = document.querySelector('#frm');
 
-
-                    // ----- 7.ÖRNEK -----
-                    // ----- 8.ÖRNEK -----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    // ----- 5.ÖRNEK -----
+form.onsubmit = function(e) {
+  if(fname.value === '' || lname.value === '') {
+    e.preventDefault();
+    para2.textContent = 'You need to fill in both names!'
+  }
+}
