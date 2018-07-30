@@ -1,8 +1,7 @@
 // --------------------------------------------------- 3.Bölüm 1.Kısım
 
-                    // ----- 1.ÖRNEK -----
 var person = {
-  name : ['Kamil', 'KAPLAN'],
+  name : ['Kamil', 'KAPLAN'],           // array tanımlıyor
   age : 24,
   gender : 'bekar',
   interests : ['music', 'skiing'],
@@ -13,27 +12,36 @@ var person = {
   greeeting : function() {
     alert('Hi! I\'m ' + this.name2.first + '.');
   },
-  name2 : {
+  name2 : {                              // nesne tanımlıyor
     first : 'KKAMİL',
     last : 'KKAPLAN'
   }
 };
 
-// console.log(person.name + ' => ' + person.name[0] + ' ' + person.age + ' ' +
-// person.interests[1] + ' ' + person.bio() + ' ' + person.greeeting() + '.');
+var person1 = {
+  name : 'Chris',
+  greeeting : function() {
+      console.log('Hi! I\'m ' + this.name + '.');
+  }
+}
+// console.log(person.name + ' => ' + person.name[0] + ' ' + person.age + ' ' + person.interests[1] + ' ' + person.bio() + ' ' + person.greeeting() + '.');
 
-// console.log(person.name2.first + ' ' + person.name2.last);
+// console.log(person['name2']['first'] + ' ' + person.name2.last);
 
-person['name2']['last'] = 'KKKKK';
+person.name2.last = 'KKKKKK' // or person['name2']['last'] = 'KKKKKK'
 // console.log(person.name2);
 
 person['eyes'] = 'hazel';
-// console.log(person.eyes);
-
 person.farewell = function() { alert("Bye everybody!"); }
+// console.log(person.eyes);
 // console.log(person.farewell());
 
-// --------------------------------------------------- 3.Bölüm 2.Kısım
+person.age = 45;
+person['name2']['last'] = 'Cratchit';
 
-                    // ----- 1.ÖRNEK -----
-// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS
+var myDataName = 'height';
+var myDataValue = '1.75';
+person[myDataName] = myDataValue;
+// console.log('Person height: ' + person.height);
+
+// console.log(person);
