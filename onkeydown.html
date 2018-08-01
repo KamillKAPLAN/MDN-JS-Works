@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Klavye Olayları</title>
+<style>
+#kutu{
+  position:absolute;
+  left:200px;
+  top:200px;
+  width:200px;
+  height:200px;
+  background:black;
+}
+</style>
+</head>
+<body>
+<div id="kutu"></div>
+<script>
+  /* kutu nesnesinin x ve y değerlerini okutuyoruz.*/
+  var kutu=document.getElementById("kutu");
+  /*window.onkeydown tarayıcı açıkken her hangi bir tuşa basıldığında olaya iliştirilen anonim metod tetiklenecek.*/
+  window.onkeydown=function(olay){
+    /* offsetLeft nesnenin sol kenardan ne kadar uzak olduğunu
+    offsetTop nesnenin üstten kenardan ne kadar uzak olduğunu gösterir*/
+    var y = kutu.offsetTop, x=kutu.offsetLeft;
+    //Sol Top Kodu:37 Ust Top Kodu:38 Sağ Top Kodu:39 Alt Top Kodu:40*/
+    /*hangi tuşa basıldığını kontrol edip, nesnenin yerini css ile kaydırıyoruz. yukarıdaki x ve y değerleri ile*/
+    if(olay.keyCode==37 || olay.keyCode==65)
+    {
+      kutu.style.left=(x-5)+"px";
+    } else if(olay.keyCode==38 || olay.keyCode==87) {
+      kutu.style.top=(y-5)+"px";
+    } else if(olay.keyCode==39 || olay.keyCode==68) {
+      kutu.style.left=(x+5)+"px";
+    } else if(olay.keyCode==40 || olay.keyCode==83) {
+      kutu.style.top=(y+5)+"px";
+    }
+  }
+</script>
+</body>
+</html>
