@@ -79,6 +79,7 @@ function initialize() {
         // store in the JSON (under "type") are lowercase. We therefore need to convert
         // to lower case before we do a comparison
         var lowerCaseType = category.value.toLowerCase();
+        console.log(lowerCaseType);
         for(var i = 0; i < products.length ; i++) {
           // If a product's type property is the same as the chosen category, we want to
           // dispay it, so we push it onto the categoryGroup array

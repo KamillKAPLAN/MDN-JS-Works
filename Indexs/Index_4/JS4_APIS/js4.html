@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Üçüncü taraf API'ları</title>
+    <style>
+      #map_canvas {
+        width: 600px;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDDuGt0E5IEGkcE6ZfrKfUtE9Ko_de66pA"></script>
+    <!--
+     - Üçüncü taraf API'ları, üçüncü taraflarca sağlanan (genellikle Facebook, Twitter veya Google gibi şirketler)
+    API'ları JavaScript aracılığıyla işlevselliğine erişmenize ve kendi sitenizde kullanmanıza izin veren API'lardır.
+     - Üçüncü taraf API'leri üçüncü taraf sunucularda bulunur. Bunlara JavaScript’ten erişmek için öncelikle API işlevine
+    bağlanmanız ve sayfanızda kullanılabilir hale getirmeniz gerekir.
+     - Bazı API'ler, işlevlerine erişimi biraz daha farklı bir şekilde ele alır ve geliştiricinin belirli verileri almak
+    için bir HTTP isteği (sunucudan veri alınıyor) belirli bir URL kalıbı yapmasını gerektirir.Bunlara RESTful API'ler denir
+    -->
+    <h1>Simple maps example</h1>
+
+    <div id="map_canvas"></div>
+    <script>
+      if("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+          var myOptions = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.TERRAIN,
+            // disableDefaultUI: true
+            zoomControl: true,
+            mapTypeControl: true,
+            scaleControl: true,
+          }
+          var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+          // Özel bir simge kullanmak
+          var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+          // harita üzerinde belirli bir noktada bir işaret (simge) olduğunu ekleme
+          var marker = new google.maps.Marker({
+            position: latlng,
+            icon: iconBase + 'flag_maps.png',
+            map: map
+          });
+
+          // Google Haritalar API'sında açılır pencerelere bilgi pencereleri
+          var contentString = '<div id="content"><h2 id="firstHeading" class="firstHeading">Custom info window</h2><p>This is a cool custom info window.</p></div>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        });
+      } else {
+        var para = document.createElement('p');
+        para.textContent = 'Argh, no geolocation!';
+        document.body.appendChild(para);
+      }
+    </script>
+  </body>
+</html>
